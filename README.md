@@ -5,7 +5,7 @@ This is a helper python program which synchronizes remote Gitlab repo(s) with su
 The program accepts a single top-level `group-id`, which it will use 
 to traverse through the sub-groups to perform a`git [clone|pull]` command using ssh.
 
-## Reqiures
+## Requires
 
 * pipenv (for python)
 * gitlab api token
@@ -46,3 +46,8 @@ pipenv run python src/gitlab-sync.py \
 	--no-dry-run 
 
 ```
+
+## Finding the Group Id on Gitlab
+
+The Group ID can be found by navigating to the Group (or SubGroup) settings page
+and expanding the General settings.
