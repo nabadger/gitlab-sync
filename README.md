@@ -15,13 +15,7 @@ to traverse through the sub-groups to perform a`git [clone|pull]` command using 
 
 Use `pipsi` to install into `$HOME/.local/bin/gitlab-sync`
 ```
-pipsi install . 
-```
-
-or via pip 
-
-```
-sudo pip install .
+pipsi install https://github.com/nabadger/gitlab-sync.git\#egg\=gitlab-sync
 ```
 
 ## Run
