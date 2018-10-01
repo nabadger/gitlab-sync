@@ -1,6 +1,6 @@
 # Gitlab Sync
 
-This is a helper python program which synchronizes remote Gitlab repo(s) with support for group / sub-groups.
+This is a helper python program which downloads remote Gitlab repo(s) with support for group / sub-groups.
 
 The program accepts a single top-level `group-id`, which it will use 
 to traverse through the sub-groups to perform a`git [clone|pull]` command using ssh.
@@ -46,7 +46,6 @@ pipenv run python src/gitlab-sync.py \
 	--no-dry-run 
 
 ```
-
 ## Finding the Group Id on Gitlab
 
 The Group ID can be found by navigating to the Group (or SubGroup) settings page
