@@ -27,9 +27,9 @@ pipsi uninstall gitlab-sync
 
 ## Run
 ```
-gitlab-sync.py --help
+gitlab-sync --help
 
-usage: gitlab-sync.py [-h] [--group-id GROUP_ID]
+usage: gitlab-sync [-h] [--group-id GROUP_ID]
                       [--local-repo-path LOCAL_REPO_PATH]
                       [--gitlab-token GITLAB_TOKEN] [--dry-run] [--no-dry-run]
 
@@ -47,7 +47,7 @@ optional arguments:
 ## Example
 
 ```
-pipenv run python src/gitlab-sync.py \
+gitlab-sync \
 	--group-id <numeric-gitlab-group-id> \
 	--local-repo-path /tmp/mycheckouts \
 	--gitlab-token <gitlab-api-token> \
