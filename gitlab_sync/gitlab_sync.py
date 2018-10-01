@@ -58,34 +58,17 @@ def sync_gitlab_repos(gl, args):
     get_groups(top_group, top_group.name)
 
 
-def main(args):
+def main():
     """
     Init settings and start
     """
-
-    # Grab gitlab token from environment and exit if not set
-    gitlab_private_token = \
-        os.environ.get('GITLAB_PRIVATE_TOKEN') or \
-        args.gitlab_token
-
-    if not gitlab_private_token:
-        print('Please set GITLAB_PRIVATE_TOKEN in env')
-        sys.exit(1)
-
-    gl = gitlab.Gitlab('https://gitlab.com',
-                       private_token=gitlab_private_token)
-    gl.auth()
-
-    sync_gitlab_repos(gl, args)
-
-
-if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
-    parser.add_argument("--group-id", help="group id")
+    parser.add_argument("--group-id", help="group id", required=True),
     parser.add_argument("--local-repo-path",
-                        help="local repo path (clone under this dir)")
-    parser.add_argument("--gitlab-token", help="gitlab private token")
+                        help="local repo path (clone under this dir)",
+                        required=True)
+    parser.add_argument("--gitlab-token", help="gitlab private token",
+                        default=os.environ.get('GITLAB_PRIVATE_TOKEN'))
     parser.add_argument("--dry-run", dest="dry_run",
                         action='store_true', default=True,
                         help="dry-run (do not do git commands)")
@@ -94,4 +77,19 @@ if __name__ == '__main__':
                         help="no-dry-run (do git commands)")
 
     args = parser.parse_args()
-    main(args)
+    
+    # Grab gitlab token from environment and exit if not set
+    if not args.gitlab_token:
+        parser.print_help(sys.stderr)
+        print("gitlab-token not set via GITLAB_PRIVATE_TOKEN or --gitlab-token")
+        sys.exit(1)
+
+    gl = gitlab.Gitlab('https://gitlab.com',
+                       private_token=args.gitlab_token)
+    gl.auth()
+
+    sync_gitlab_repos(gl, args)
+
+
+if __name__ == '__main__':
+    main()

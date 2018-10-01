@@ -7,19 +7,26 @@ to traverse through the sub-groups to perform a`git [clone|pull]` command using 
 
 ## Requires
 
-* pipenv (for python)
+* pipsi or pip for installation
 * gitlab api token
 * gitlab configured with ssh-key
 
 ## Install
 
+Use `pipsi` to install into `$HOME/.local/bin/gitlab-sync`
 ```
-pipenv install
+pipsi install . 
+```
+
+or via pip 
+
+```
+sudo pip install .
 ```
 
 ## Run
 ```
-pipenv run python src/gitlab-sync.py --help
+gitlab-sync.py --help
 
 usage: gitlab-sync.py [-h] [--group-id GROUP_ID]
                       [--local-repo-path LOCAL_REPO_PATH]
