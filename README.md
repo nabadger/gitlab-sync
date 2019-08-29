@@ -7,22 +7,22 @@ to traverse through the sub-groups to perform a`git [clone|pull]` command using 
 
 ## Requires
 
-* pipsi for installation
+* pipx for installation
 * gitlab api token
 * gitlab configured with ssh-key
 
 ## Install
 
-Use `pipsi` to install into `$HOME/.local/bin/gitlab-sync`
+Use `pipx` to install into `$HOME/.local/bin/gitlab-sync`
 
 ```
-pipsi install git+https://github.com/nabadger/gitlab-sync.git\#egg\=gitlab-sync
+pipx install --spec git+https://github.com/nabadger/gitlab-sync.git gitlab-sync
 ```
 
 To uninstall:
 
 ```
-pipsi uninstall gitlab-sync
+pipx uninstall gitlab-sync
 ```
 
 ## Run
