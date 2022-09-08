@@ -9,13 +9,14 @@ to traverse through the sub-groups to perform a`git [clone|pull]` command using 
 
 * gitlab api token
 * gitlab configured with ssh-key
+* https://python-poetry.org/
 
 ## Install
 
 ```
 git clone git@github.com:nabadger/gitlab-sync.git
 cd gitlab-sync
-python3 -m pip install .
+poetry run python gitlab_sync/gitlab_sync.py
 ```
 
 To uninstall:

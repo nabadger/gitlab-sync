@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gitlab-sync"
+version = "0.1.0"
+description = "A helper to download remote Gitlab repo(s) with support for group / sub-groups."
+authors = ["Nick"]
+readme = "README.md"
+packages = [{include = "gitlab_sync"}]
+
+[tool.poetry.dependencies]
+colorama = "*"
+gitpython = "*"
+python = "^3.8"
+python-gitlab = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
